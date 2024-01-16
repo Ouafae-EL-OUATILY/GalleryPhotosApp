@@ -1,0 +1,72 @@
+
+.sign-up-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    margin: auto;
+    margin-top: 40px;
+    
+  }
+  
+  .sign-up-form {
+    margin-top: 5%;
+    margin-right: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: darkorchid;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #be6ef0;
+  }
+  h2{
+    color: darkorchid;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  a{
+  color: darkorchid;
+  }
+  .input-field:focus::placeholder {
+    color: transparent;
+  }
+  
+  /* Apply styles to the placeholder text when the input field is not empty */
+  .input-field:not(:placeholder-shown)::placeholder {
+    color: transparent;
+  }
+  .img{
+
+    height: 100px;
+   
+  }

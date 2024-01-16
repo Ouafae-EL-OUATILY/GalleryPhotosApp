@@ -1,0 +1,66 @@
+<div class="menu">
+    <img src="./assets/image.png" alt="Description of the image" class="myimage" routerLink="/main">
+    <span class="spn">Picture Perfect</span>   
+</div>
+
+<div class="gallery" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <!-- Container for Image and Color Boxes -->
+    <div class="comps" style="display: flex; flex-direction: row; position: relative;">
+        <div class="pro-card">
+            <img class="image" [src]=image.src alt="Description of the image">
+        </div>
+        
+        <!-- Color Boxes -->
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap;transform: translate(80%,-130%);margin-top: 70%;">
+            <div *ngFor="let dom of image.dominant" style="background-color: rgb({{ dom[0] }}, {{ dom[1] }}, {{ dom[2] }}); width: 40px; height: 35px; margin: 2px;"></div>
+        </div>
+    </div>
+
+    <!-- Container for Chart and Table -->
+    <div style="display: flex; flex-direction: column; margin-left: 35%;">
+        <!-- Chart -->
+        <div class="chart-container" style="width: 600px; height: 400px; transform: translateY(-120%);">
+            <canvas id="MyChart">{{ chart }}</canvas>      
+        </div>
+        
+        <!-- Table -->
+        <div class="tab" style="transform: translateY(-150%)">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Lightness (L)</th>
+                        <th>Green-red (a)</th>
+                        <th>Blue-yellow (b)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mean</td>
+                        <td>{{image.moment.l_mean}}</td>
+                        <td>{{image.moment.a_mean}}</td>
+                        <td>{{image.moment.b_mean}}</td>
+                    </tr>
+                    <tr>
+                        <td>Standard Deviation</td>
+                        <td>{{image.moment.l_std}}</td>
+                        <td>{{image.moment.a_std}}</td>
+                        <td>{{image.moment.b_std}}</td>
+                    </tr>
+                    <tr>
+                        <td>Skewness</td>
+                        <td>{{image.moment.l_skew}}</td>
+                        <td>{{image.moment.a_skew}}</td>
+                        <td>{{image.moment.b_skew}}</td>
+                    </tr>
+                    <tr>
+                        <td>Kurtosis</td>
+                        <td>{{image.moment.l_kurtosis}}</td>
+                        <td>{{image.moment.a_kurtosis}}</td>
+                        <td>{{image.moment.b_kurtosis}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,200 @@
+table {
+  border-collapse: collapse;
+  transform: translateY(-90%);
+
+}
+.zoom{
+  transform: translateY(-25%);
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+
+
+.sidebar {
+  width: 200px;
+  height: 1000px; /* Set a fixed height for the sidebar */
+  background-color: #f1f1f1;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
+  transform: translateY(2%);
+}
+
+.sidebar button {
+  display: flex;
+  margin-bottom: 10px;
+  background-color: #D1AE0F;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar button:hover {
+  background-color: darkorchid;
+}
+.comp{
+  transform: translateY(-40%);
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: flex-start; */
+  justify-content: center;
+  width: 700px; /* Set a maximum width for the gallery */
+  height: 630px;
+  /* Set a maximum height for the gallery */
+  background-color: #f1f1f1;
+  padding: 200px; /* Add padding inside the gallery */
+  margin: 23px auto 0; /* Center the gallery horizontally and set a top margin */
+}
+
+
+.image {
+
+  max-height: 300px;
+  transform: translateY(-50%);
+
+
+}
+
+.button-54{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.btns{
+  margin: auto;
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 500px;
+}
+
+.image img.selected {
+  border-color: #007bff;
+}
+
+.image button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.menu {
+  display: flex;
+  align-items: flex-start; /* Align items vertically to the start (top) */
+  justify-content: flex-start; /* Align items horizontally to the start (left) */
+  padding: 5px; /* Add padding around the menu items if needed */
+  background-color: #c3b1e1;
+}
+.upload-button {
+  background-color: #D1AE0F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px; /* Add some space between the button and other items */
+  transform: translateY(40%);
+  margin-left: auto;
+}
+
+
+.upload-button:hover {
+  background-color: darkorchid;
+}
+.myimage {
+  margin-right: 0px; /* Add some space between the image and other items */
+  margin-top: 5;
+  width: 70px; /* Set the width of the image */
+  height: 70px; /* Set the height of the image */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.spn {
+  color: #D1AE0F;
+  font-weight: bold;
+  font-size: 25px;
+  transform: translateY(50%);
+}
+
+
+
+::ng-deep .ngxImageZoomContainer > img{
+  max-height: 300px;
+
+}
+
+
+/* CSS */
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #D1AE0F;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+image1{
+  transform: translateY(-10%);
+}

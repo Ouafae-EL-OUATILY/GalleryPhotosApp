@@ -1,0 +1,143 @@
+
+<div class="menu">
+  <img src="./assets/image.png" alt="Description of the image" class="myimage" routerLink="/main">
+  <span class="spn">Picture Perfect</span>
+  <button *ngIf="inCropMode" (click)="saveChanges(cropImgPreview,'Cropped')" class="upload-button" >
+    <i class="pi pi-check" style="font-size: 1rem; margin-right: 5px;"></i> Save changes
+  </button>
+  <button *ngIf="inZoomMode" (click)="saveChanges('','Zoomed')" class="upload-button" >
+    <i class="pi pi-check" style="font-size: 1rem; margin-right: 5px;"></i> Save changes
+  </button>
+  <button *ngIf="inCompressMode" (click)="saveChanges(imgResultAfterCompression,'Compressed')" class="upload-button" >
+    <i class="pi pi-check" style="font-size: 1rem; margin-right: 5px;"></i> Save changes
+  </button>
+  
+</div>
+<div class="content" style="display: flex;">
+<div class="sidebar" >
+  <button (click)="toggleCropMode()">
+    <i class="pi pi-pencil" style="font-size: 1rem; margin-right: 5px;"></i>Crop
+  </button>
+  <button (click)="toggleCompressMode()">
+    <i class="pi pi-images" style="font-size: 1rem; margin-right: 5px;"></i>Compress
+  </button>
+  <button (click)="toggleZoomMode()" >
+    <i class="pi pi-search-plus" style="font-size: 1rem; margin-right: 5px;"></i>Zoom
+  </button>
+</div>
+  <div class="gallery" >
+
+    <div style="justify-content: center;">
+
+      <img [src]=galleryImageUrl alt="Description of the image" class="image" *ngIf="!inCropMode && !inZoomMode">
+      <div style="display: block; height: 300px; transform: translateY(-50%);">
+        <image-cropper
+          [imageBase64]="galleryImageUrl"
+
+          output="base64"
+          [maintainAspectRatio]="true"
+          format="png"
+          [canvasRotation]="canvasRotation"
+          [transform]="transform"
+          (imageCropped)="cropImg($event)"
+          (imageLoaded)="imgLoad()"
+          (cropperReady)="initCropper()"
+          (loadImageFailed)="imgFailed()"
+          *ngIf="inCropMode && !inZoomMode"
+        ></image-cropper>
+        <br>
+        <br><br>
+
+        <div class="btns"  *ngIf="inCropMode">
+          <button (click)="rotateLeft()" class="button-5">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5 20.5C17.1944 20.5 21 16.6944 21 12C21 7.30558 17.1944 3.5 12.5 3.5C7.80558 3.5 4 7.30558 4 12C4 13.5433 4.41128 14.9905 5.13022 16.238M1.5 15L5.13022 16.238M6.82531 12.3832L5.47107 16.3542L5.13022 16.238" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button (click)="rotateRight()" class="button-5">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 20.5C6.80558 20.5 3 16.6944 3 12C3 7.30558 6.80558 3.5 11.5 3.5C16.1944 3.5 20 7.30558 20 12C20 13.5433 19.5887 14.9905 18.8698 16.238M22.5 15L18.8698 16.238M17.1747 12.3832L18.5289 16.3542L18.8698 16.238" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button (click)="flipHorizontal()" class="button-5" >
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 18.1136V5.88638C2 4.18423 2 3.33316 2.54242 3.05402C3.08484 2.77488 3.77738 3.26956 5.16247 4.25891L6.74371 5.38837C7.35957 5.82827 7.6675 6.04822 7.83375 6.37127C8 6.69432 8 7.07274 8 7.82957V16.1704C8 16.9273 8 17.3057 7.83375 17.6287C7.6675 17.9518 7.35957 18.1717 6.74372 18.6116L5.16248 19.7411C3.77738 20.7304 3.08484 21.2251 2.54242 20.946C2 20.6668 2 19.8158 2 18.1136Z" fill="#1C274C"/>
+              <path d="M22 18.1136V5.88638C22 4.18423 22 3.33316 21.4576 3.05402C20.9152 2.77488 20.2226 3.26956 18.8375 4.25891L17.2563 5.38837C16.6404 5.82827 16.3325 6.04822 16.1662 6.37127C16 6.69432 16 7.07274 16 7.82957V16.1704C16 16.9273 16 17.3057 16.1662 17.6287C16.3325 17.9518 16.6404 18.1717 17.2563 18.6116L18.8375 19.7411C20.2226 20.7304 20.9152 21.2251 21.4576 20.946C22 20.6668 22 19.8158 22 18.1136Z" fill="#1C274C"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V6C12.75 6.41421 12.4142 6.75 12 6.75C11.5858 6.75 11.25 6.41421 11.25 6V2C11.25 1.58579 11.5858 1.25 12 1.25ZM12 9.25C12.4142 9.25 12.75 9.58579 12.75 10V14C12.75 14.4142 12.4142 14.75 12 14.75C11.5858 14.75 11.25 14.4142 11.25 14V10C11.25 9.58579 11.5858 9.25 12 9.25ZM12 17.25C12.4142 17.25 12.75 17.5858 12.75 18V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V18C11.25 17.5858 11.5858 17.25 12 17.25Z" fill="#1C274C"/>
+            </svg>
+          </button>
+
+          <button (click)="flipVertical()" class="button-5">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.1136 22H5.88638C4.18423 22 3.33316 22 3.05402 21.4576C2.77488 20.9152 3.26956 20.2226 4.25891 18.8375L5.38837 17.2563C5.82827 16.6404 6.04822 16.3325 6.37127 16.1662C6.69432 16 7.07274 16 7.82957 16H16.1704C16.9273 16 17.3057 16 17.6287 16.1662C17.9518 16.3325 18.1717 16.6404 18.6116 17.2563L19.7411 18.8375C20.7304 20.2226 21.2251 20.9152 20.946 21.4576C20.6668 22 19.8158 22 18.1136 22Z" fill="#1C274C"/>
+              <path d="M18.1136 2L5.88638 2C4.18423 2 3.33316 2 3.05402 2.54242C2.77488 3.08484 3.26956 3.77738 4.25891 5.16247L5.38837 6.74372C5.82827 7.35957 6.04822 7.6675 6.37127 7.83375C6.69432 8 7.07274 8 7.82957 8L16.1704 8C16.9273 8 17.3057 8 17.6287 7.83375C17.9518 7.6675 18.1717 7.35957 18.6116 6.74372L19.7411 5.16248C20.7304 3.77738 21.2251 3.08484 20.946 2.54242C20.6668 2 19.8158 2 18.1136 2Z" fill="#1C274C"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H6C6.41421 11.25 6.75 11.5858 6.75 12C6.75 12.4142 6.41421 12.75 6 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM9.25 12C9.25 11.5858 9.58579 11.25 10 11.25H14C14.4142 11.25 14.75 11.5858 14.75 12C14.75 12.4142 14.4142 12.75 14 12.75H10C9.58579 12.75 9.25 12.4142 9.25 12ZM17.25 12C17.25 11.5858 17.5858 11.25 18 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H18C17.5858 12.75 17.25 12.4142 17.25 12Z" fill="#1C274C"/>
+            </svg>
+          </button>
+
+          <button (click)="resetImage()" class="button-5">
+            <svg fill="#000000" width="30px" height="30px" viewBox="0 0 512 512" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><path d="M64,256H34A222,222,0,0,1,430,118.15V85h30V190H355V160h67.27A192.21,192.21,0,0,0,256,64C150.13,64,64,150.13,64,256Zm384,0c0,105.87-86.13,192-192,192A192.21,192.21,0,0,1,89.73,352H157V322H52V427H82V393.85A222,222,0,0,0,478,256Z"/></svg>
+          </button>
+        </div>
+        <br>
+        <br>
+        <div *ngIf="inCompressMode" class="comp">
+          <div style="display: flex;">
+            <div>
+              <div  style="justify-content: center; display: flex;">
+                <mat-slider min="1" max="100" step="1" value="1">
+                  <input matSliderThumb [(ngModel)]="ratio">
+                </mat-slider><br>
+
+                <input style="width: 40px;" type="number" [(ngModel)]="ratio"> <p>Ratio</p>
+              </div>
+
+              <div style="justify-content: center; display: flex; width: fit-content;">
+                <mat-slider min="0" max="100" step="1" value="1">
+
+                  <input matSliderThumb [(ngModel)]="quality">
+                </mat-slider><br>
+                <input style="width: 40px;" type="number" [(ngModel)]="quality"><p>Quality</p>
+              </div>
+
+            </div>
+
+          </div> <br>
+          <button  class="button-5" (click)="compressFile()">submit</button>
+          <br><br>
+        </div>
+
+
+        <div style="position: relative; display: block; height: 300px;">
+          <img class="image1" [src]="imgResultAfterCompression" *ngIf="imgResultAfterCompression && inCompressMode " />
+        </div>
+
+      </div>
+      <br>
+      <br>
+
+    </div>
+    <img style="margin-top:100px;" class="image" [src]="cropImgPreview" *ngIf="inCropMode" />
+
+    <div class="zoom">
+    <lib-ngx-image-zoom
+      [thumbImage]="galleryImageUrl"
+      [magnification]="1"
+      [enableScrollZoom]="true"
+      [enableLens]="true"
+      [lensWidth]="100"
+      [lensHeight]="100"
+      [circularLens]="true"
+      *ngIf="inZoomMode"
+    ></lib-ngx-image-zoom>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+

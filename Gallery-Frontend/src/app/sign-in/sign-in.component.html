@@ -1,0 +1,18 @@
+<div class="sign-in-container">
+    <img src="./assets/image.png" alt="Description of the image" class="img">
+    <h2>Welcome back!</h2>
+  <h3 *ngIf="mess" style="color:green">{{mess}}</h3>
+  <form class="sign-in-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" required placeholder="Enter your email" class="input-field" >
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required required placeholder="Enter your password" class="input-field">
+      </div>
+      <button (click)="onSignIn()">Login</button>
+    </form>
+  <p *ngIf="message" style="color:red">{{message}}</p>
+  <p>Don't have an account yet? <a href="/signup">SignUp</a></p>
+  </div>

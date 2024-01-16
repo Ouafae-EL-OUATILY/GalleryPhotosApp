@@ -1,0 +1,23 @@
+<div class="sign-up-container">
+  <img src="./assets/image.png" alt="Description of the image" class="img">
+    <h2>Create New Account</h2>
+    <form class="sign-up-form">
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="email" id="Name" name="Name" [(ngModel)]="Name" required placeholder="Enter your Name" class="input-field">
+      </div>
+      <div class="form-group">
+        <label for="email" id="email">Email</label>
+        <input type="email"  name="email" [(ngModel)]="email" required placeholder="Enter your email" class="input-field">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required placeholder="Enter your email" class="input-field">
+      </div>
+
+      <button (click)="onSignUp()">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="/signin">Login</a></p>
+    <p style="color:red" *ngIf="mess">{{mess}}</p>
+
+</div>

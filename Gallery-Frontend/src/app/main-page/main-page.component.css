@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-left: 10px; /* Add padding to the left side of the gallery */
+  max-width: 600px; /* Set a maximum width for the gallery */
+  margin-left: auto; /* Push the gallery to the right */
+  margin-right: 5%;
+}
+  
+.image {
+  margin: 10px;
+  justify-content: center;
+  max-height: 150px;
+  
+}
+
+
+.image img {
+  height: 100%;
+  
+  object-fit: cover;
+  border: 2px solid transparent;
+}
+  
+  .image img.selected {
+    border-color: #007bff;
+  }
+  
+  .image button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .menu {
+    display: flex;
+    align-items: flex-start; /* Align items vertically to the start (top) */
+    justify-content: flex-start; /* Align items horizontally to the start (left) */
+    padding: 5px; /* Add padding around the menu items if needed */
+    background-color: #c3b1e1;
+  }
+  .upload-button {
+    background-color: #D1AE0F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px; /* Add some space between the button and other items */
+    transform: translateY(40%);
+    margin-left: auto;
+  }
+  
+  
+  .upload-button:hover {
+    background-color: darkorchid;
+  }
+  .myimage {
+    margin-right: 0px; /* Add some space between the image and other items */
+    margin-top: 5;
+    width: 70px; /* Set the width of the image */
+    height: 70px; /* Set the height of the image */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+  
+  .spn {
+    color: #D1AE0F;
+    font-weight: bold;
+    font-size: 25px;
+    transform: translateY(10%);
+  }

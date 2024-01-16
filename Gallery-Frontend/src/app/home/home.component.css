@@ -1,0 +1,26 @@
+@import "primeflex/primeflex.css";
+button {
+    background-color:darkorchid;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 27px;
+    transform: translateY(80%);
+    font-family: Georgia, serif;
+    font-weight: bold;
+  }
+  p{
+    transform: translateY(30%);
+
+  }
+  img{
+    transform: translate(-9%);
+  }
+  button:hover {
+    background-color:#be6ef0 ;
+  }
+  span{
+    color: #D1AE0F;
+  }

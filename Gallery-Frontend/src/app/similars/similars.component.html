@@ -1,0 +1,33 @@
+<div class="menu">
+    <img src="./assets/image.png" alt="Description of the image" class="myimage" routerLink="/main">
+    <span class="spn">Picture Perfect</span>   
+</div>
+
+<div class="gallery" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <!-- Container for Image and Color Boxes -->
+    <div class="comps" style="display: flex; flex-direction: row; position: relative;">
+        <div class="pro-card">
+            <img class="image" [src]=image.src alt="Description of the image">
+        </div>
+    </div>
+    
+<div class="p-4 sm:ml-64">
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+       <div class="grid grid-cols-3 gap-4 mb-4" style="justify-content: space-around;">
+ 
+               <div class="image" *ngFor="let image of ThemeImages">
+                 <img [src]="image.src" [alt]="image.alt" [class.selected]="image.selected" (click)="toggleImageSelection(image)" />
+               <div style="display: flex;">
+ 
+                <p-knob [(ngModel)]="value" [min]="-3" [max]="3"></p-knob>
+ 
+               </div>
+               </div>
+    </div>
+ </div>
+        
+
+   
+
+</div>
+
